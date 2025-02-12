@@ -1,0 +1,30 @@
+This is notes about ls linux Command
+
+ls -> Listing command is used to list out all directories and all files on a given path
+ex - ls dir1/ -> this command list out everything present in dir1 directory
+
+Options we can use with ls commands are:
+----------------------------------------------
+
+1) ls			-> This command will list all files and directory present in current location 
+2) ls <path> 		-> It will list out the content present on path
+3) ls -l 		-> -l option represent long listing it provide more informations about file like first char represent type of file
+			   then next 9 char represent file permission it also represent creation/modification time of the file/dir 
+
+long list output example and explanation 
+-rwxrw-r-- 4 sandeep sandeep 4096 Feb  1 05:04 test.txt
+
+"-" -> this first char represent file type (-) means normal file (d) means directory etc..
+"rwxrw-r--" -> this represent file permision r -> read w -> write and x -> execute 
+		First 3 char "rwx" represent owner/user permission
+		Next 3 char "rw-" represent Group Permission and last 3 char represent others permission 
+
+4) ls -r 		-> r stands for reverse it reverse the output by alphabetic order
+5) ls -t 		-> it will show the output ordered by latest modification/creation
+6) ls -a 		-> list all files/dir including hidden file also 
+7) ls -A		-> list all files/dir including hidden file except "." and ".." dir
+8) ls -F		-> List all files by type (in last character will append which show type of file) 
+			   "/" represent dir , "*" executable file , "@" Link File
+
+9)  ls -h 		-> List file in human readable form 
+10) ls -R		-> It list directory and there subdirectory recursively
