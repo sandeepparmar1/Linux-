@@ -1,0 +1,15 @@
+Questions on mkdir , rmdir and rm command
+------------------------------------------
+
+1) What is the primary purpose of the mkdir command in Linux?
+
+2) How would you create multiple directories at once using the mkdir command?
+
+3) What is the difference between using mkdir dir1/dir2 and mkdir -p dir1/dir2?
+
+4) What are the limitations of the rmdir command when deleting directories?
+
+5) In what scenario would you use the rm command instead of rmdir to delete a directory?
+
+6) What are the purposes of the -i and -v options in the rm command, and when might you use them?
+

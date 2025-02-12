@@ -1,0 +1,45 @@
+Notes on mkdir , rmdir and rm command
+----------------------------------------
+
+
+mkdir command is used to make directory/folder
+
+1) mkdir <DirName>		-> create directory with given name <DirName>
+2) mkdir dir1 dir2 dirN   	-> create multiple directory
+3) mkdir dir1/dir2		-> It will create a directory inside directory but parent directory should be available 
+4) mkdir -p dir1/dir2		-> It will create full path even parent directory doesn't exits
+
+
+
+Example
+----------
+
+Create 10 directory with name test1 , test2 ... test10
+-> mkdir test{1..10} 		-> This command will create test1 to test10 directory
+
+
+
+rmdir command
+-----------------
+
+rmdir command is used to delete empty directories if there is any content present in the directory it can't delete the directory for that we
+will use rm command
+
+1) rmdir <dirName>		-> remove empty <dirName>
+2) rmdir dir1 dir2 dirn 	-> remove multiple empty directories 
+
+Note -> In real world we use rm command more to delete directories rather then rmdir command 
+
+
+rm command
+------------------
+
+rm command is used to delete files and directories 
+
+
+1) rm <fileName>		-> Delete file <fileName> 
+2) rm -r <dirName>		-> r stands for recursive it will delete whole directory even if it contain anything
+3) rm -f <fileName> 		-> f means forecly if we don't want any error message to display 
+4) rm -i <fileName> 		-> i means interactive it will ask before deleting
+5) rm -v <fileName>		-> v means verbose it will show sequence of removal 
+
