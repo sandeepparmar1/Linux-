@@ -1,0 +1,30 @@
+This is Notes for Date and cal commands 
+----------------------------------------
+
+Date Command
+--------------
+date command can be used to fetch current local date time from system
+
+1) date 		-> Returns local date and time
+
+Various option for date command is 
+
+2) date +%Y		-> display year in YYYY format
+3) date +%y		-> display year in YY format
+4) date +%m		-> display month in MM format
+5) date +%d		-> display day in DD format
+6) date +%H		-> display hour HH value in 24 hour format
+7) date +%M		-> display minute MM format
+8) date +%S		-> display seconds SS format
+
+we can combine multiple options to create desired format
+9) date +%d/%m/%Y	-> display date in DD/MM/YYYY format
+
+Cal Command
+--------------
+cal command we can use to display calendar
+
+1) cal 			-> display current year calendar
+2) cal YYYY		-> display specified year calendar 
+3) cal MM YYYY		-> display specific month calendar
+
