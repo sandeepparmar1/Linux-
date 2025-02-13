@@ -1,0 +1,44 @@
+Questions on Notes
+-----------------------------
+
+
+1)  What are the three methods to create files in Linux, and how do they differ?
+
+2)  How does the `cat > fileName` command work for file creation, and what happens if the file already exists?
+
+3)  What is the difference between using `>` and `>>` when creating or writing to a file with `cat`?
+
+4)  How does the `touch` command work, and what happens when you use it on an existing file?
+
+5)  What are some common editors you can use in Linux to create or edit files?
+
+6)  List and describe at least three commands used for viewing the contents of a file.
+
+7)  How does the `tac` command differ from the `cat` command?
+
+8)  What does the `rev` command do to the content of a file?
+
+9)  How can you display only the first 10 lines of a file using the `head` command, and how would you change this number?
+
+10) What are the differences between the `head` and `tail` commands in terms of their output?
+
+11) How would you combine `head` and `tail` to print lines 3 to 7 from a file?
+
+12) What are the advantages of using the `more` command over `cat` for large files, and what are its navigation options?
+
+13) How does the `less` command improve upon the `more` command for file viewing?
+
+14) How do you create hidden files or directories in Linux, and how can you convert an existing file into a hidden file?
+
+15) What commands can you use to compare the content of two files, and what are the main differences between them (e.g., `cmp` vs. `diff` vs. `sdiff` vs. `vimdiff`)?
+
+16) What is the purpose of the `comm` command when comparing files?
+
+17) Explain the difference between a hard link and a soft (symbolic) link in Linux.
+
+18) How do you create a hard link, and what are some important observations about hard links (e.g., inode sharing)?
+
+19) How do you create a soft link, and what happens to a soft link if the original file is deleted?
+
+20) In what scenarios would you choose to use the `mv` command for renaming versus moving files or directories?
+
