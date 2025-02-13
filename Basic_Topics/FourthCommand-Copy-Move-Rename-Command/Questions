@@ -1,0 +1,23 @@
+
+Questions on Related topics
+--------------------------------
+
+1)  What is the basic syntax to copy a file using the cp command?
+
+2)  How would you copy multiple files into an existing directory using cp?
+
+3)  What is the difference between executing cp dir1/* dir2 and cp -r dir1 dir2?
+
+4)  Why is the -r option necessary when copying directories with cp?
+
+5)  When might you need to use the cat command instead of cp for handling file contents?
+
+6)  What is the basic syntax for moving or renaming a file using the mv command?
+
+7)  How does the mv command decide whether to perform a rename or a move operation?
+
+8)  What happens when you run mv file1 file2 and a file named file2 already exists in the same directory?
+
+9)  How can you move multiple files to a specific directory using the mv command?
+
+10) How does the behavior of the mv command differ when moving directories versus renaming them?

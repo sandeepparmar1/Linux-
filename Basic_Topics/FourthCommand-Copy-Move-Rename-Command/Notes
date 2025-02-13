@@ -1,0 +1,64 @@
+This is about Copy , Move and Rename command
+---------------------------------------------
+
+we can use copy command to copy content from one file to another file
+
+Syntax
+-------
+1) cp <Source File> <Destination File>
+
+Options && Cases
+------------------
+
+1) cp file1 file2 filen <directory>		--> To copy multiple files into a directory
+2) cp dir1/* dir2				--> To copy dir1 all content inside dir2
+3) cp -r dir1 dir2				--> To copy directory into another directory {If destination directory doesn't available
+							then destination directory will we created and whole dir1 content copy in created
+							destination directory means it work as cp dir1/* dir2}
+
+
+To copy multiple files content in one file cp command is not usefull we need to use cat command for that which we talk later
+
+
+Move Command
+---------------------
+
+move command can be used for both rename and move operations
+
+syntax
+-------
+
+mv <source> <destination>
+
+if source file or source directory is moved to same <destination path> 
+1) mv file1 file2 -> here if file2 exists at same directory move command perform rename and replace operation on file2
+2) mv file1 file2 -> here if file2 is not exists file1 will we renamed to file2
+
+Note we can perform same operation with directory
+
+1) mv dir1/* dir2 	--> Move all content for dir1 to dir2
+2) mv dir1 dir2		--> here if dir2 not exists dir1 will we rename to dir2
+3) mv file1 file2 file3 dir3 	-> Move selected files to a directory dir3
+
+
+
+
+Summary of directory related command
+---------------------------------------
+1)  mkdir dirName
+2)  mkdir dirName1 dirName2 ..
+3)  mkdir -p dir1/dir2/dir3
+4)  rmdir dirName
+5)  rmdir dirName1 dirName2 ...
+6)  rm -r dir1
+7)  rm -ri dir2
+8)  rm -rf dir2
+9)  cp file1 file2
+10) cp file1 file2 dir1
+11) cp dir/* dir2
+12) cp -r dir1 dir2
+13) mv file1 file2
+14) mv dir1 dir2
+15) mv dir1/* dir2
+16) mv file1 file2 dir1
+
