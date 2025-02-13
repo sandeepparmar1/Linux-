@@ -277,3 +277,21 @@ b) But if we delete the Source file then soft link file will be broken and we ca
 
 
 
+EXTRA ONE SMALL COMMAND
+
+Word Count
+----------------
+
+we can use wc command to count number of lines,words and characters present in the given file
+
+syntax
+-------
+1) wc FileName 		-> It will return NumberOfLines NumberOfWords NumberOfCharacters present in the file
+
+Various Options
+-----------------
+1) wc -l FileName 	-> Show only total line count
+2) wc -w FileName	-> Show only total words count
+3) wc -c FileName 	-> Show only total character count
+
+
