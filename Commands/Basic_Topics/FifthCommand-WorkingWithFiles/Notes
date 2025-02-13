@@ -1,0 +1,279 @@
+Working with files we can define in few Operations which are
+--------------------------------------------------------------
+
+1) Creation of Files
+2) Viewing Files Content
+3) Copying Files Content
+4) Comparision of Files Content
+5) Renaming of files
+6) Deleting files
+7) Creation of hidden files and directories
+8) Creation of Link Files
+9) Editing content of files 
+
+1) Creation of files
+----------------------------------------------------------------------------------------------
+
+File can we created in 3 ways in Linux
+---------------------------------------
+a) Using cat command
+b) Using touch command
+c) Using editors
+
+a) By Using cat Command : cat came from concatination 
+	the purpose of cat command is not just creation of file but many more which we will understand as we move
+
+1) for creation of file we can use this command
+	cat > fileName
+	----data------
+
+here ">" is a redirect operation this we will study in future for now understand the input u give from keyboard will we overwrite into file
+and we use cntrl + d to exit from cat command
+
+case 1 -> If <File> is not exists it will create the new file 
+case 2 -> If <file> exists with some data in it, It will we overwritten 
+
+2) cat >> fileName
+   ------data-----
+
+here >> is a redirect in append mode
+case 1 -> If file not exists it will create new file
+case 2 -> If file exists then the data will we append not overwrite in this case
+
+
+b) By Using touch command : touch command can we used to create file or modify time stamp
+
+1) touch <fileName>
+
+case 1 -> If file not exists it will create new file 
+case 2 -> If file already exists nothing will happen just time stamp of file will we modified
+
+c) By Using editors 
+there is many editors like gedit and nano editor we can use them also to create files
+
+
+
+2) Viewung Content of file
+-------------------------------------------------------------------------------------------
+
+For viewing content of a file we have multiple commands
+--------------------------------------------------------
+
+a) cat
+b) tac
+c) rev
+d) head
+e) tail
+f) more
+g) less
+
+
+a) cat Command
+---------------
+cat command can be used for viewing the content of a file 
+
+1) cat < fileName
+	or
+   cat fileName
+
+case 1 -> if file exists the content of file will we printed on terminal 
+case 2 -> if file doesn't exit it will throw an error
+
+various option 
+---------------
+1) cat -n fileName		-> here n represent number we can represent print line number with content
+2) cat -b fileName 		-> this command will skip numbering blank lines
+3) cat file1 file2 fileN 	-> To view various file content
+4) cat file1 file2 > file	-> Copy multiple file content into single file
+
+
+b) tac Command
+------------------
+It's the reverse of cat which use to print content of file in reverse order
+	tac fileName
+
+c) rev command
+------------------
+It's use to print content of file in horizontal reverse order
+	rev fileName
+
+
+Note : In real world we will mostly use cat command with combination of other command we never going to use tac or rev command
+
+d) Head command
+-------------------
+Cat and other commands will print total file content which can be good in small file scenario, but if file contain large set of
+data then it's hard to read data from cat command only so here we use another command with it.
+
+Head command can be used to limit the number of lines which print on the terminal from top of the file
+
+1) head file.txt 		-> by default it will display 10 lines from top form the file
+2) head -n 15 file.txt
+	or
+   head -15 file.txt		-> by this way we can specify any number of line to print
+3) head -c 20 file.txt 		-> It will print 20 character of file
+
+e) Tail command
+-------------------
+Tail command is used to view content of a file from bottom 
+It's opposite of a head command, we can use same option here also
+
+1) tail fileName
+2) tail -n 20 fileName
+	or
+   tail -20 fileName
+3) tail -c 100 fileName
+
+I didn't provide explanation of each tail command you can understand by yourself 
+
+
+
+Question related to this head and tail print line 3 to 7 from test.txt
+
+Ans -> head -7 file.txt | tail -5 
+here "|" this is called piping we will study this in future topic for just you can think that the output from head is becoming input to tail
+
+
+f) More Command
+-----------------
+We can use head and tail command to get information about data but if we want to view data page by page we can use more command
+
+1) more fileName
+
+here various options are for scrolling pages are 
+	enter -> Next line
+	space -> page Up
+	q     -> quit/exit
+
+2) more -d fileName 	-> it will show info about navigation
+
+
+g) less command
+-----------------
+More command is good but the drawback with more is that we can go to next page using space(page Up) but we can't go back to the previous page
+(page down)
+for that we can use less command
+
+1) less fileName
+
+various option to navigate
+	d --> page up / next page
+	b --> page down / previous page
+
+
+
+
+
+
+3) Creation of Hidden files
+------------------------------------------------------------------------------------------
+
+In linux if any files start with "." it's a hidden file
+Hidden files is created to hide data from the user all file need by kernal is hidden only we can list hidden file using (ls -a)
+We can create hidden file normally main difference is just start hidden file name "."
+
+1) touch .HiddenFile
+2) mkdir .HiddenDir
+3) cat > .hiddenFile
+
+for converting already created file in hidden file we can just rename the file
+1) mv NormalFile .hiddenFile
+2) mv normalDir .hiddenDir
+
+
+For security only hidden file is not enough we need to use file/dir permission for that which we will study in future
+
+
+4) Comparing content of files
+------------------------------------------------------------------------------------------
+We can compare data of two files by using the following commands
+
+a) cmp
+b) diff
+c) sdiff
+d) vimdiff
+e) comm
+
+a) cmp command
+----------------
+It will compare data byte by byte 
+
+1) cmp file1 file2
+
+If content is same no output
+If content is different then it provides information about first byte number and line number
+
+b) diff command
+-------------------
+It will show all difference
+
+1) diff file1 file2
+
+If the content is same no output
+If the content is diff then it will show all differences
+
+
+option to use with diff commands
+a) diff -q fileName fileName2 			-> Show messages when file are different
+b) diff -s fileName fileName2			-> Shows message when file are same
+c) diff -y fileName fileName2			-> show comparison line by line parallelly 
+d) --supress-common-lines			-> it can be used to supress same lines of both file only show lines where diff is present
+
+c) sdiff command
+-------------------
+It's exactly same as diff with -y option 
+
+1) sdiff fileName fileName2
+
+d) Vimdiff command
+-------------------
+It will highlight all differences in VIM editor
+VIM editor is advance version of VI editor 
+
+1) vimdiff fileName fileName2
+
+
+
+5) Creation of Link File
+-------------------------------------------------------------------------------------
+
+This is last topic of this NOTES file other file operation is defined in other notes so we are not repeating that here
+
+Link File -> Is the file which point to another file in LINUX we have 2 type of Link files
+
+1) Hard Link File
+2) Soft Link File
+
+1) Hard Link File
+------------------
+Hard link file is a concept which doesn't present in windows OS
+Hard link file can be created using ln command
+
+syntax
+---------
+1) ln <SourceFileName> <LinkFileName>
+
+Observations
+------------
+a) The inode number of both files are same
+b) if we edit any of the files content it will affect both changes will recieved by both of files
+c) Note : If we delete original file it doesn't broke Link file now Link file work as SourceFile/Original File
+d) We can't create hard link directory because it will broke linux file system
+
+2) Soft Link File
+--------------------
+It's same as windows shortcut 
+SoftLink file is a pointer to original file, Soft Link also know as symbolic link file
+
+syntax
+-------------
+1) ln -s <Original File> <Soft Link File>
+2) ln -s <Original dir> <Soft Link dir>
+
+Observations
+---------------
+a) It's same as windows shortcut if we change something in link file it will affect the source file also
+b) But if we delete the Source file then soft link file will be broken and we can't use it anymore
+
+
+
