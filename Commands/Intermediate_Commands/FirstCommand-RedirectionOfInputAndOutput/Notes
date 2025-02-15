@@ -1,0 +1,107 @@
+Before redirection of input and output we need to learn how input and output stream works in Linux
+----------------------------------------------------------------------------------------------------------
+				 ________________
+------Command Line Argument---->|		 |
+				|		 |
+				|		 |-----------Standard Output
+				|    Command	 |
+------ Standard Input---------->|		 |-----------Standard Error
+				|		 |
+				------------------	
+
+Commands can take input from two ways 
+	1) Command Line Argument
+	2) Standard Input
+
+After input command create Output in two ways
+	1) Standard Output
+	2) Standard Error
+
+
+Standard Input,Output and Error are Data Streams and streams can be manipulated this means they can be redirected or piped to another command
+
+NOTE : Command line argument are static in nature and can't be redirected 
+
+This 3 data streams are associated with some numbers 
+1) Standard Input associate with 0
+2) Standard Output associate with 1
+3) Standard Error associates with 2
+
+Some Important points before Redirection topic
+--------------------------------------------------
+1) By default standard input is connected with keyboard 
+2) By default standard output and error is connected with terminal 
+
+But Based on our requirement we can redirect this from standard devices 
+
+REDIRECTION NOTES
+-------------------------------------------------------------------------------------------------------------
+
+Standard input ,Standard output and Standard error are data streams hence they can flow from one place to another place.
+we can redirect these streams
+
+REDIRECTING STANDARD OUTPUT
+----------------------------------
+1) Standard output is associated with 1
+2) Standard output connected with terminal by default , But we can redirect this standard output from terminal to some where 
+else based on our requirement
+
+3) We can perform output redirection by using > and >> symbols
+	">" represent OverWritting
+	">>" represent Appending
+
+
+Example command for redirection standard output 
+cat 1> <FileName>
+cat 1>> <FileName>
+	or 
+cat FileName 1>> FileName2
+
+1) here in first set of command we are using output redirection to redirect keyboard data in given file rather then terminal
+2) in second set we are redirecting cat created FileName output data to FileName2 hence we are copying data from one file to another
+
+NOTE: Bydefault > and >> are always meant for output redirection hence , using 1 with >> and > is optional
+
+
+REDIRECTING STANDARD ERROR
+------------------------------------
+
+1) Bydefault standard error device is connected to terminal. we can use redirection to redirect error messages from terminal 
+   to our required place
+
+
+we can implement error redirection using "2>" or "2>>" symbols
+
+Example
+-----------
+1) cat abc 2> error
+
+In this command we are reading data from abc and if any error occur we are redirecting the error message to the error file 
+Hence we are changing default terminal device to a file 
+
+2) cat abc >> File1 2> error1
+
+In this command we are reading data from abc file and redirecting data to file1 if any error come during this command redirect to the 
+error1 file hence we can use multiple redirection 
+
+REDIRECTING STANDARD INPUT
+-----------------------------------
+1) By default standard input device is connected with keyboard . But we can redirect from keyboard to somewhere else based on 
+our requirement 
+
+2) We can perform input redirection using this "<" symbol and the number associated with 0
+
+Example
+--------------
+1) cat 0< fileName
+
+Here in this command cat is taking input from a file <fileName> rather then keyboard and 
+"<" is always associated with Standard input redirection hence using 0 is not mandatory 
+
+Example
+----------
+1) cat 0< InputFile 1>> outputFile 2>> ErrorFile
+
+Here cat is taking data from input file and output is redirect to outputfile if any error came it will we redirected to ErrorFile
+
+

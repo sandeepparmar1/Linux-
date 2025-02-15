@@ -1,0 +1,23 @@
+Here are some good questions based on notes:
+--------------------------------------------------------------------------------------------------------------------
+
+1)   What are the three standard data streams in Linux, and what file descriptor numbers are associated with each?
+
+2)   By default, where are the standard input, standard output, and standard error connected?
+
+3)   How does the redirection operator ">" differ from ">>" when redirecting standard output?
+
+4)   Explain what happens when you run the command `cat 1> FileName`. What is being redirected and why?
+
+5)   How would you use the `cat` command to copy the contents of one file to another using redirection?
+
+6)   What is the purpose of using `2>` in a command, and how does it work in the example `cat abc 2> error?
+
+7)   How can you redirect both standard output and standard error simultaneously to separate files? Provide a command example.
+
+8)   What does the command `cat 0< fileName` do, and why is the "0" optional in this context?
+
+9)   In the command `cat 0< InputFile 1>> outputFile 2>> ErrorFile`, explain the role of each redirection operator 
+     and the significance of each file descriptor.
+
+10)  Why can't command line arguments be redirected like standard input, output, and error?
