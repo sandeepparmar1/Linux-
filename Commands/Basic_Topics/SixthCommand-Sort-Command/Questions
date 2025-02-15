@@ -1,0 +1,21 @@
+Here are 10 questions based on your sort command notes:
+
+1)  What is the basic syntax for sorting the lines of a file alphabetically using the sort command?
+
+2)  How can you redirect the output of the sort command to a new file?
+
+3)  What does the `-r` option do in the sort command, and how does it affect the sorted output?
+
+4)  How does the `-u` option modify the behavior of the sort command?
+
+5)  What is the effect of using the `-n` option when sorting data with sort?
+
+6)  How do you use the `-k` option to sort data based on a specific column?
+
+7)  What does the command `sort -k 5n <FileName>` do, and when would you use it?
+
+8)  How can you change the delimiter used by sort when sorting data in a CSV file?
+
+9)  Explain how you would sort a file based on month values using the sort command.
+
+10) How can you combine sorting on multiple columns (for example, numeric sorting on one column and month sorting on another)

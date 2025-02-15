@@ -1,0 +1,172 @@
+Notes on Sort Command
+---------------------------------
+
+We can use Sort command to sort the content of file in a order specified by types[Alphabetic or Numeric] 
+Sort command is a powerfull command to sort data we can also divide data on based one any delimeter(by default space is the delimeter) for
+example sorting a column like salary on csv file we can achieve this using sort command 
+
+Note: Sort compare data byte by byte for sorting
+
+Syntax
+----------------
+1) sort <FileName> 			-> Here file lines is sorted on the basis of alphabetic order
+
+Various Options
+-----------------
+1) sort <FileName> > file.txt		-> Store data of sort command in file
+2) sort -r <FileName>			-> Reverse the sorted order
+3) sort -u <FileName>			-> Only display unique lines
+4) sort -n <FileName>			-> sort data on the basic of numeric values
+
+
+
+Now let's see sorting data on the basis of column for that we have to use "k" option
+
+Syntax
+--------
+1) sort -k [ColumnNumber][special char for specifying non]
+
+example -> sort -k 5n 		-> sort data of 5th column and it contains numeric values
+
+2) sort -k 4M <fileName>	-> sort data on the basis of month
+
+3) sort -k 3n -k 5 <fileName>	-> we can use multiple column like this
+
+4) sort -k 3n -t "," <fileName> -> change deliemeter using -t option
+
+
+
+
+example
+-------------
+
+FILE DATA
+sandeep@sandeep:~$ cat testing.txt
+AAAA
+CCCC
+DDDD
+BBBB
+AAAA
+GGGG
+FFFF
+
+
+SORTED DATA 
+sandeep@sandeep:~$ sort testing.txt
+AAAA
+AAAA
+BBBB
+CCCC
+DDDD
+FFFF
+GGGG
+
+
+SORTED DATA IN REVERSE ORDER
+sandeep@sandeep:~$ sort -r testing.txt
+GGGG
+FFFF
+DDDD
+CCCC
+BBBB
+AAAA
+AAAA
+
+
+SORTED DATA WITH UNIQUE VALUES
+sandeep@sandeep:~$ sort -u testing.txt
+AAAA
+BBBB
+CCCC
+DDDD
+FFFF
+GGGG
+
+
+NUMERIC DATA
+sandeep@sandeep:~$ cat testing.txt
+9
+5
+6
+7
+1
+0
+3
+4
+5
+6
+
+SORTING DATA ON NUMERIC BASED
+sandeep@sandeep:~$ sort -n testing.txt
+0
+1
+3
+4
+5
+5
+6
+6
+7
+9
+
+
+DATA WE ARE GOING TO USE IN SORT SPACE IS DELIMETER BY DEFAULT
+sandeep@sandeep:~$ ls -l
+total 24
+-rw-r--r-- 1 sandeep sandeep   55 Feb 15 04:13 file.csv
+-rw-r--r-- 1 sandeep sandeep   21 Feb 13 13:31 file.txt
+drwx------ 4 sandeep sandeep 4096 Feb  1 05:04 snap
+drwxr-xr-x 3 sandeep sandeep 4096 Feb  2 03:50 test
+-rwxr-xr-x 1 sandeep sandeep  191 Jan 26 13:00 test.sh
+-rw-r--r-- 1 sandeep sandeep   21 Feb 15 04:05 testing.txt
+
+
+SORTING ON THE BASIS OF 5TH NUMERIC COLUMN IN REVERSE ORDER
+sandeep@sandeep:~$ ls -l | sort -k 5rn
+drwx------ 4 sandeep sandeep 4096 Feb  1 05:04 snap
+drwxr-xr-x 3 sandeep sandeep 4096 Feb  2 03:50 test
+-rwxr-xr-x 1 sandeep sandeep  191 Jan 26 13:00 test.sh
+-rw-r--r-- 1 sandeep sandeep   55 Feb 15 04:13 file.csv
+-rw-r--r-- 1 sandeep sandeep   21 Feb 13 13:31 file.txt
+-rw-r--r-- 1 sandeep sandeep   21 Feb 15 04:05 testing.txt
+total 24
+
+
+SORTING ON THE BASIS OF MONTH VALUES
+sandeep@sandeep:~$ ls -l | sort -k 6M
+total 24
+-rwxr-xr-x 1 sandeep sandeep  191 Jan 26 13:00 test.sh
+-rw-r--r-- 1 sandeep sandeep   21 Feb 13 13:31 file.txt
+-rw-r--r-- 1 sandeep sandeep   21 Feb 15 04:05 testing.txt
+-rw-r--r-- 1 sandeep sandeep   55 Feb 15 04:13 file.csv
+drwx------ 4 sandeep sandeep 4096 Feb  1 05:04 snap
+drwxr-xr-x 3 sandeep sandeep 4096 Feb  2 03:50 test
+
+
+SORT ON THE BASIS OF MONTH AND NUMERIC COLUMN
+sandeep@sandeep:~$ ls -l | sort -k 6M -k 5rn
+total 24
+-rwxr-xr-x 1 sandeep sandeep  191 Jan 26 13:00 test.sh
+drwx------ 4 sandeep sandeep 4096 Feb  1 05:04 snap
+drwxr-xr-x 3 sandeep sandeep 4096 Feb  2 03:50 test
+-rw-r--r-- 1 sandeep sandeep   55 Feb 15 04:13 file.csv
+-rw-r--r-- 1 sandeep sandeep   21 Feb 13 13:31 file.txt
+-rw-r--r-- 1 sandeep sandeep   21 Feb 15 04:05 testing.txt
+
+
+
+CSV FILE DATA WITH "," DELIMETER
+file.csv  file.txt  snap  test  test.sh  testing.txt
+sandeep@sandeep:~$ cat file.csv
+abc,coding,10000
+def,management,20000
+def,devops,50000
+
+
+SORTING ON THE BASIS OF "," DELIMETER
+sandeep@sandeep:~$ sort -k 3nr -t "," file.csv
+def,devops,50000
+def,management,20000
+abc,coding,10000
+sandeep@sandeep:~$
+
