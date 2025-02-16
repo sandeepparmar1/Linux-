@@ -1,0 +1,18 @@
+Question based on Notes topic
+--------------------------------
+
+1) Explain in your own words the difference between using ; and && when chaining commands in the shell. 
+   Provide a simple example for each case.
+
+2) What would be the output (or behavior) of the following command sequence if ls file.txt fails (because file.txt does not exist)?
+	ls file.txt && echo "File exists" ; echo "Command completed"
+
+3) What is a command alias in Linux, and why might you want to use one? Please provide an explanation along with an example 
+   of how to create a simple alias in a shell.
+
+4) How can you make an alias permanent so that it persists across terminal sessions?
+
+5) How would you view all currently defined aliases in your shell?
+
+6) How can you remove an alias once it's been set? Provide the command to do so.
+

@@ -1,0 +1,73 @@
+Notes on Aliasing and Using multiple independent commands in single line
+--------------------------------------------------------------------------------------------
+
+First let's talk about how we can use multple independent command in single line 
+
+There is 2 ways of doing this 
+-----------------------------
+
+a) using ";"
+b) using "&&"
+
+syntax 
+-----------
+
+command - 1 ; command - 2 ; command - 3 ; command - 4;
+
+-> Here all command will execute one by one 
+
+2nd syntax
+------------
+
+command 1 && command 2 && command 3 && command 4
+
+-> Here also all command will execute one by one 
+
+Note : Main difference between both concept is using ";" ensure if there is any error between any command it will not stop the execution 
+of another command all command will we executed for example if we have error in command 2 there is no affect in command 3 and 4 execution
+
+In second case "&&" if there is error in one command it will stop execution and doesn't execute left over commands 
+example there is an error at command 2 then command 3 and 4 will not be executed 
+
+
+Command Aliasing
+----------------------------------------------------------------------
+
+Alias means a nickname or alternative name 
+-> Hence aliasing concept allow us to use nickName for the command 
+
+1) For creating alias name we have to use alias command
+	alias nickName="original Command"
+
+Note: don't use space before or after equal symbol some flavour throws error
+
+2) List all alias commands 
+	alias
+
+3) Remove alias 
+	unalias [Alias Name]
+
+4) Remove all alias names
+	unalias -a 
+
+
+We can use aliasing if we have some complex command which we have to use in regular operations we can just simply give some short name
+to the command and use the command with that name only 
+
+But this alias are Session based means it's only available to the terminal in which we define this alias to make them permanent we have 
+	2 ways 
+
+1st way of making alias name permanent 
+--------------------------------------
+Define alias name in .bashrc file which is present in users home directory 
+just go and write 
+alias nickName="your command"
+and save this file now open your new terminal and now this alias is permanent
+
+2nd way of making alias name permanent
+---------------------------------------
+Instead of editing .bashrc create your own file with name .bash_aliases name should be same and location for this file is users home directory
+now you can define your alias in this file also and the alias will we permanent 
+
+
+ 
