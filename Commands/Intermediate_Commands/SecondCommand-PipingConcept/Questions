@@ -1,0 +1,21 @@
+Questions on Piping 
+------------------------
+
+1) What does the pipe operator (|) do in Linux? Please explain its purpose and provide a simple example\
+
+2) How would you use piping to search for a specific word (e.g., "error") in a file named logfile.txt and then count the 
+   number of occurrences of that word?
+
+3) Using a pipeline, how would you list the top 5 processes that are consuming the most CPU on your Linux system? 
+   You should use ps, sort, and head commands in your solution.
+
+4) How can you use piping and redirection together to search for the word "fail" in a file named results.log, 
+   write the lines containing "fail" to a file named failures.txt, and simultaneously display them on the terminal?
+
+5) Describe a scenario where you would combine multiple pipes in a command and explain the flow of data between commands. 
+   Provide an example command and explain each part.
+
+6) What does the xargs command do in Linux, and why is it useful when working with pipes? 
+   Provide a brief explanation along with a simple example.
+
+Note : In this question some solution need grep or find command knowledge which we will talking soon 
