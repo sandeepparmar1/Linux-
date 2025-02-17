@@ -1,0 +1,120 @@
+Notes on Find Command
+-------------------------------------
+
+Before learning find command we should have knowledge about basic regex[Regular Expression] so here is little introduction to basic regex
+
+1) What is Regular expression 
+-> A collection of strings which are having a particular pattern can be represent with regular expression 
+In other word regular expression is a way to create a expression which can represent a pattern 
+
+By using wild card character we can build regular expression , A wildcard character can be used as a substitute for required 
+sequence of characters in regular expressions 
+
+Some wild cards and pattern we can use :
+---------------------------------------
+1) * --------> Represent 0,n occurence of any character 
+2) ? --------> Represent 1 character any occurence 
+3) [range] --> Represent range of character
+4) [!range] -> Represent except given range any charcter
+5) {a,b}    -> list of character with comma separated values
+6) [a-z]    -> represent a to z range
+7) [A-Z]    -> represent A to Z range
+8) [0-9]    -> represent 0 to 9 range
+9) [a-zA-Z0-9] -> combination of all 3
+
+Few examples on base of this
+-----------------------------
+* PATTERN EXAMPLE
+sandeep@sandeep:~$ ls *.txt
+abc.txt  file.txt  testing.txt
+
+? PATTERN EXAMPLE
+sandeep@sandeep:~$ find -maxdepth 1 -name "????"
+./snap
+./test
+
+[RANGE] PATTERN EXAMPLE
+sandeep@sandeep:~$ ls [aeiou]*
+abc.txt  error
+
+[!RANGE] PATTERN EXAMPLE
+sandeep@sandeep:~$ find -maxdepth 1 -name "[!aeiou.]*"
+./test.sh
+./snap
+./test
+./file.txt
+./file.csv
+./testing.txt
+
+[a-z] SEQUENCE PATTERN EXAMPLE
+sandeep@sandeep:~$ find -maxdepth 1 -name "[a-z]*"
+./abc.txt
+./test.sh
+./snap
+./test
+./error
+./file.txt
+./file.csv
+./testing.txt
+
+{VAL,VAL} PATTERN EXAMPLE
+sandeep@sandeep:~$ touch test_{First,Second,Third}.py
+sandeep@sandeep:~$ ls
+abc.txt  file.csv  snap  test.sh        test_Second.py  testing.txt
+error    file.txt  test  test_First.py  test_Third.py
+
+
+sandeep@sandeep:~$ rm *.py
+
+sandeep@sandeep:~$ ls
+abc.txt  error  file.csv  file.txt  snap  test  test.sh  testing.txt
+
+
+
+
+FIND COMMAND
+------------------------------------------------------------------------------------------------
+Find command is used to search desired file/dir in file system as it search directly on file system it's little slow then locate kind of
+command which don't search whole filesystem, but find is more accurate 
+
+Syntax
+---------
+1) find
+
+It will display all file/dir present inside current working directory and all subdirectories also be listed till end it's act 
+something like " ls -R"
+
+2) find <Path> 		-> We can specifie any specific location/dir where we want to search by default it takes "." [Current dir]
+
+3) find <path> -maxdepth 1	-> here we are specifying the range of depth till how many subdirectories level over search should go
+				   here 1 means only current level
+
+4) find <path> -type f/d	-> find by type f means files and d means directory
+
+5) find <path> -maxdepth 1 -name "pattern/name" -> here we can search by name where we can use pattern or specific pattern 
+
+6) find <path> -size +20k/20M/20G	-> here + represent greater then specified size 20k represent kb , M represent mb and G represent gb
+
+7) find <path> -size +20k -size -20M    -> represent range find file greater then 20 kb and less then 20 mb
+
+8) find <path> -size +10M -o -size 100k -> o represent logical or here file should have greater then 10 mb or file should less then 100 kb
+
+9) find <path> -empty 	-> find empty files/directories
+
+We can use result to do any other operation like mv,cp,rm etc using -exec option
+
+10) find <path> -empty -exec mv {} emptyContent \;		-> this command every find result will pass to mv and mv will move those
+									file to emptyContent directory
+
+11) find <path> -mtime +7		-> mtime represent modification time 7 represent day and + - this options are same
+
+
+I think above with size and time i missed + , - topic so here it's + means greater then if we use +7M with size means file greater
+then 7mb and if we use -7M it means less then 7 mb and if we use -size 7M this means exact 7 mb same concept goes for mtime also just
+in place of size mtime talks about creation/mdification timestamp 
+
+
+Note: using all options are not mandatory you can use option which suit your needs
+
+
+ 

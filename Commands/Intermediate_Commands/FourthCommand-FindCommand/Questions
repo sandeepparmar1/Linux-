@@ -1,0 +1,17 @@
+Questions on find command
+---------------------------
+
+1) Find all .log files in the /var/logs directory that were modified in the last 7 days and compress 
+   them into a .tar.gz archive named logs_backup.tar.gz.
+
+	(Hint for creating compress file read next command and use xargs here)
+
+2) How would you use the find command to delete all empty files (zero size) in the current directory 
+	and its subdirectories? (Be cautious with deletion commands.)
+
+3) How would you use the find command to search for directories named backup that were modified more than 30 days ago?
+
+4) How would you modify the find command to search for files with the .log extension that are larger than 5MB?
+
+5) What is the purpose of the find command in Linux, and how would you use it to search for all files with 
+   the .txt extension in the current directory and all its subdirectories?
