@@ -1,0 +1,10 @@
+Question on Notes command
+-----------------------------
+1) How would you compress a directory named project into a bzip2-compressed tar archive called project.tar.bz2?
+
+2) How would you compress a directory named logs into a .zip file called logs.zip using a single command?
+
+3) How would you extract the contents of the gzip-compressed tar archive mydir.tar.gz into the current directory?
+
+4) Write a command that compresses a directory named mydir into a gzip-compressed archive called mydir.tar.gz.
+

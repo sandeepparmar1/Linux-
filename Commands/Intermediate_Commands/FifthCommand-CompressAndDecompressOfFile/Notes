@@ -1,0 +1,67 @@
+Notes on compression and descompression of files
+-------------------------------------------------------
+
+In this we will we going to talk about common mechanism to compress and decompress files in Linux based system 
+It's similar concept of windows zip and unzip file
+
+In real world it's very common requirement to pack and unpack group of files 
+
+It's a two step process
+------------------------
+
+1) Creation of archieve files
+2) Apply compression algorithm 
+
+1) Creation of archieve files : In this we put group of files in a container which further we pass to compression algorithms 
+	
+for creating archieve files we need to use tar command 
+syntax
+--------
+	tar -cvf "tarFileName.tar" file1 file2 dir1 dir2
+
+Here tar command use c option to create v for verbose and f for name file "tarFileName.tar" 
+and we can pass file dir everything to this it will create the given name archieve file 
+
+	tar -tvf "tarFileName" 	-> to view what content is present inside over archieve file
+	
+	tar -xvf "tarFileName"	-> to extract content of the archieve file
+
+
+2) In second step we will apply compression algorithm to over tar archieve file
+
+There are mutliple compression and decompression algorithms 
+1) Using gzip
+	gzip <ArchieveFile> 	-> this will compress file using gzip algorithm 
+
+to unzip we can use 
+	gzip -d <CompressedFile>
+		or
+	gunzip <CompressFile>
+
+2) Using bzip2
+	bzip2 <ArchieveFile>
+To unzip we can use
+	bzip2 -d <CompressFileName>
+		or
+	bunzip2 <CompressFileName>
+
+
+Note: We should have knowledge which compression algorithm is used to uncompress the file 
+
+We can achieve creation of Archieve file and compression in single command also 
+
+1) tar -cvzf "FileName.tar.gz" file1 dir1 	-> it will create directly compresed file using gzip algorithm 
+
+Note: using extension is important to understand which compression technique is used
+
+2) tar -xvzf <FileName>		-> it will decompress and extract file data which is compressed by gzip
+
+here z represent gzip 
+
+Next is bzip2 
+
+1) tar -cvjf <FileName.tar.bz2> file1 dir1 	-> It will archieve and compress files using bzip2 algorithm
+
+2) tar -xvjf <fileName> 			-> to decompress and extract compressed file using bzip2
+
+
