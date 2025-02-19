@@ -1,0 +1,57 @@
+Below is a set of questions based on notes
+1. **Basics of Grep:**  
+   - What does the command “grep” stand for, and what is its primary use?
+
+2. **Syntax and Usage:**  
+   - What is the basic syntax of the grep command?  
+   - How does grep print the matching line when a pattern is found?
+
+3. **Options and Flags:**  
+   - What does the `-i` flag do in a grep command?  
+   - How does the `-c` flag differ from simply counting words?  
+   - What information does the `-n` flag add to the output?  
+   - How does the `-l` option change the output of grep?  
+   - What is the purpose of using the `-v` option?  
+   - How does the `-w` flag affect the matching of patterns?
+
+4. **Context Options:**  
+   - Explain the difference between `grep -A 2`, `grep -B 2`, and `grep -C 2`.  
+   - In what scenario might you use `grep -2` as a shorthand?
+
+5. **Multiple Patterns:**  
+   - How can you use the `-e` option to search for multiple patterns in a single grep command?  
+   - What is the equivalent of using `egrep` with extended regular expressions?
+
+6. **Fixed String Searching:**  
+   - What is the difference between using `fgrep` and `grep -F`?  
+   - When would you choose to use fixed string search over regular expression search?
+
+7. **Output Control:**  
+   - What does the `-o` flag do in grep, and how is it useful for extracting specific parts of a line?
+
+8. **Regular Expressions and Patterns:**  
+   - What does the pattern `d*` match, and why might its usage be confusing?  
+   - How do character ranges (e.g., `[aeiou]`) work within grep?  
+   - What does the dot `.` character represent in a regex pattern?  
+   - How would you match a word boundary using regex in grep?
+   - How can you use `^` and `$` to match the beginning and end of a line, respectively?
+   - Provide an example of a regex pattern that matches a line that contains only the word “Word” and nothing else.
+
+9. **Advanced Regex Options:**  
+   - How do you use the extended regex option (`-E`) with grep to search for multiple words separated by a pipe `|`?  
+   - Explain the usage of quantifiers like `[0-9]{m}`, `[0-9]{m,n}`, and `[0-9]{m,}` in grep.
+
+10. **Practical Scenarios:**  
+    - Given a file containing various text data, how would you use grep to extract only mobile numbers that start with digits 6–9 and are exactly 10 digits long?  
+    - How would you redirect the output of a grep command to a file, and why might this be useful?  
+    - In the context of a CSV file containing employee data, how can you use grep to filter records for a specific department?  
+    - How can grep be used to count the number of lines that match a certain pattern in a file?
+
+11. **Comparing Grep and Other Commands:**  
+    - What is the primary difference between the use cases for grep and the find command?  
+    - How can grep be integrated with other commands (like ps, find, or tail) to perform combined operations?
+
+12. **General Understanding:**  
+    - Why might someone prefer using `grep -E` over `egrep` in modern systems?  
+    - What are some common pitfalls when writing regex patterns for grep, and how can they be avoided?
+

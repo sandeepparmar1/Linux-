@@ -1,0 +1,236 @@
+Notes on grep command
+---------------------------------------------------------------------------
+grep stands for global regular expression print
+
+-> Use case of grep command is to find/search something in our file content
+
+
+People mostly confused between grep and find command find command usecase is to find given file/directory in file system
+and grep command use is to find matchig data in the file content 
+
+Syntax
+--------------
+
+grep <pattern> FileName
+
+it will print the whole line where pattern is matched
+
+example -> grep "Linux" file.txt
+	*******OUTPUT**********
+		1. Linux is an open-source operating system kernel.
+		7. The `/var/log` directory stores system logs in Linux.
+		20. Linux file permissions are represented as `rwxr-xr--`.
+		# Random Linux Commands Section
+		echo "Hello, Linux World!" > greeting.txt
+	***********************
+
+Options of grep Command
+--------------------------
+
+1) grep "Word/Pattern" <FileName or Pattern>
+example -> 	grep "linux" *		-> search linux in all files
+
+2) grep -i "Word" <FileName>		-> -i stands for ignore case
+
+3) grep -c "word" <FileName>		-> count the number of line returned not the word count 
+
+4) grep -n "word" <fileName>		-> display number of line where pattern matched
+
+5) grep -l "word" <Pattern>		-> display only file name where pattern/word is matched
+
+6) grep -v "word" <fileName>		-> display every line except matched line
+
+7) grep -w "linux" <fileName>		-> search exact word means word shouldn't be part of anyother word
+		example if we search for "linux" and there is a word notlinux it will we matched in normal case but with -w option we
+			are matching exact word means notlinux is not going to match because here linux is not an independent word
+
+8) grep -A 2 "word" <FileName> 		-> display 2 below lines matched after "word"
+example -> grep  -A 2 "Linux" *.txt
+**************OUTPUT*********************
+file.txt:1. Linux is an open-source operating system kernel Linux.
+file.txt-2. The `grep` command is used for searching text using patterns.		-> AFTER 2 LINES
+file.txt-3. To search for a specific word in a file, use: grep "word" filename.txt
+--
+file.txt:7. The `/var/log` directory stores system logs in Linux.
+file.txt-8. The `cat` command is used to display the contents of a file.		-> AFTER 2 LINES
+file.txt-9. Use `sed` or `awk` for advanced text processing.
+--
+*******************************************
+
+9) grep -B 2 "word" <fileName>		-> display 2 above lines from matched lines
+
+10) grep -C 2 "word" <fileName>		-> display both 2 below and 2 above line after matched line
+		or
+    grep -2 "word" <fileName>		-> by default it takes -C option
+
+11) grep -e "word1" -e "word2" <fileName> 	-> search for multiple options 
+
+12) egrep "(word1|word2)" <fileName>		-> we can use egrep also to search for advance regular expression
+
+13) grep -E "(word1|word2)" <fileName>		-> In place of egrep use -E option with grep because egrep is used in traditional versions
+
+14) fgrep "Word1" <fileName> 			-> fgrep is used to match fixed string it doesn't count string as pattern it take input as 
+						   common string not any kind of regular expression
+
+15) grep -F "word1" <fileName>			-> fgrep is depericated in new versions so use -F option with grep
+
+16) grep -F "word1
+word2						-> To search multiple words word should be seperated by new line
+word3" <fileName>  
+
+
+17) grep -o "word" <fileName> 			-> to print only given word not the whole line It can also we used to print occurence of word
+
+
+
+
+SOME EXAMPLE QUESTIONS AND ANSWER TO BETTER UNDERSTAND 
+1) write grep command to extract only mobile number from a file and save it into mobile.data
+	data present in sample.data
+Command -> grep -Eo "[6-9][0-9]{9}" > mobile.data
+
+let's break down command now 
+1) -E option for using grep extend means more advance regex 
+2) -o option to just print exact word matched 
+3) > use to redirect output to a file
+
+***********************************************************************
+example output
+SAMPLE.DATA
+sandeep@sandeep:~$ cat sample.data
+Name: Rahul Sharma
+Phone: 9876543210
+Email: rahul.sharma@example.com
+Address: 123 MG Road, Bangalore
+
+Name: Priya Verma
+Phone: 7890123456
+Email: priya.verma@example.com
+Address: 42 Green Park, Delhi
+
+Name: Ankit Kumar
+Phone: 5432109876
+Email: ankit.kumar@example.com
+Address: 89 Patel Nagar, Mumbai
+
+Name: Sneha Joshi
+Phone: 9012345678
+Email: sneha.joshi@example.com
+Address: 77 Rajpath, Pune
+
+Name: Amit Singh
+Phone: 6123456789
+Email: amit.singh@example.com
+Address: 55 Nehru Place, Chennai
+
+GREP OUTPUT
+sandeep@sandeep:~$ grep -Eo "[6-9][0-9]{9}" sample.data
+9876543210
+7890123456
+9012345678
+6123456789
+
+*********************************************************************
+
+2) fetch all running process using (ps -ef) and 
+	a) display all process which contains "lib"
+	b) display all which doesn't contains lib
+	c) count all lines where we get "lib"
+	d) display line number also
+command -> ps -ef | grep -F "lib"
+	b) ps -ef | grep -Fv "lib"
+	c) ps -ef | grep -Fc "lib"
+	d) ps -ef | grep -Fn "lib"
+
+
+
+3) You have csv file in which you have employe data 
+*******************************************************
+sandeep@sandeep:~$ cat employe.data
+Name,Department,Salary
+Rahul Sharma,IT,75000
+Vikram Mehta,IT,82000
+Anjali Gupta,IT,90000
+Priya Verma,HR,60000
+Neha Kapoor,HR,65000
+Ankit Kumar,Finance,85000
+Suresh Nair,Finance,78000
+Sneha Joshi,Marketing,70000
+Rohit Das,Marketing,73000
+Amit Singh,Engineering,90000
+Karan Malhotra,Engineering,88000
+*********************************************************
+
+a) display all employe belong to IT			  
+b) display all employe belongs to IT and HR
+
+
+command a) grep -Fwi "IT" employe.data
+*************OUTPUT********************
+sandeep@sandeep:~$ grep -Fwi "IT" employe.data
+Rahul Sharma,IT,75000
+Vikram Mehta,IT,82000
+Anjali Gupta,IT,90000
+***************************************
+
+command b) grep -Ewi "(IT|HR)" employe.data
+*************OUTPUT********************
+sandeep@sandeep:~$ grep -Ewi "(IT|HR)" employe.data
+Rahul Sharma,IT,75000
+Vikram Mehta,IT,82000
+Anjali Gupta,IT,90000
+Priya Verma,HR,60000
+Neha Kapoor,HR,65000
+***************************************
+
+
+
+
+SOME MORE REGULAR EXPRESSION PATTERN 
+---------------------------------------
+All regular expression pattern are divided into 3 types
+a) Character pattern
+b) Word pattern
+c) Line pattern
+
+1) Character pattern
+--------------------
+examples:
+-----------
+1) * -> grep "d*" 		-> it match all words which contains d followed by any number of chars (o,n) occurence defined earlier in 
+					another notes so not giving more explanation
+
+2) [range] -> grep "c[aeiou]ll" 	-> It is also deefined earlier
+
+3) . -> grep "b..l" 			-> represent "." any 1 char
+
+2) Word pattern
+----------------
+1) \<word\> -> grep "\<word\>" 		-> It represent exact word match same as -w option
+
+2) \<word   -> grep "\<d"		-> It represent start of any word with d 
+
+3) word/>   -> grep "d/>		-> It represent end of any word with d
+
+3) Line pattern
+------------------
+^ -> grep "^d"			-> It represent line should start with d
+
+$ -> grep "d$"			-> It represent line end with d
+
+
+^Word$ -> grep "^Word$"		-> Only match line whose content is "Word" only nothing else
+
+^$ 	-> grep "^$"		-> Represent blank lines
+
+Additional pattern support by -E option
+1) (word1|word2|wordn) -> represent any word from all of the given words
+
+2) [0-9]{m}		-> represent exactly "m" occurence of preceding character
+
+3) [0-9]{m,n}		-> represent minimum "m" and maximum "n" occurence of preceding character
+
+4) [0-9]{m,}		-> represent minimum "m" and no restriction to maximum 
+
+ 		
+
