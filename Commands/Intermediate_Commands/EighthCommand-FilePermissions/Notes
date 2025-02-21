@@ -1,0 +1,161 @@
+Notes on File Permission
+------------------------------------------------
+
+File Permission describe the allowed operations by various users 
+
+Sub topic you need to understand before file permissions 
+---------------------------------------------------------------------
+
+1) User categories with respect to file permissions 
+
+2) Permission Types
+
+3) Operations allowed related permissions
+
+
+1) User catogories 
+-------------------------------------------------------------------------------------
+
+-> With respect to file permission , all users are divided into 4 types
+
+a) User/Owner -------> Represented by "U"
+
+b) Group ------------> Represented by "G"
+
+c) Others -----------> Represented by "O"
+
+d) All --------------> Represented by "a"
+
+
+2) Permission Types
+--------------------------------------------------------------------------------------
+
+-> Different type of permissions we have 
+
+a) r ----------> Represent read [Can view content of file]
+
+b) w ----------> Represent write [Can edit the content of file]
+
+c) x ----------> Represent execute [Can execute script]
+
+d) - -----------> Represent no permission
+
+
+
+-> r permission on directories means we can view content of dir
+
+-> w permission on directories means creation and delete in directory 
+
+-> x permission on directories means we can enter into directories 
+
+Note : We need execute permission for entering into directory without entering into directory we can't read content of directory
+	2) Without entering in directory we can't even create or modify any thing hence write permission also not affected without execute
+	This means without execution permission read and write permission on directory is useless 
+
+
+ 
+
+
+3) Operation related to permission
+---------------------------------------------------------------------------------------------
+We can perform 3 operations 
+
+1) "+" --------------> Add a particular permission to any of the user categories  
+
+2) "-" --------------> Remove a particular permission from the user catogories
+
+3) "=" --------------> Assign a set of permission to user categories
+
+
+Now after this topics let's study about chmod command 
+-----------------------------------------------------------------------------------------------
+
+-> Chmod means change mode , we can use chmod command to change file or directory permissions 
+
+Syntax
+-----------------
+
+chmod <User_catogories> <Operation> <Permission> File/DirName
+
+1) chmod u+x FileName/DirName 		-> this means u(User) +(Add permission) x(execute) means add execute permission to user
+
+2) chmod u+x,g+w,o+r FileName/DirName 	-> Performing multiple permission modification operations
+
+3) chmod u=xr,g=rw,o=x FileName/DirName -> performing assign operation to multiple user groups
+
+4) chmod a=- fileName/DirName 		-> Remove all permission or we can say assign "-" permission to all 
+
+5) chmod a=rwx fileName/DirName 	-> giving all permission to all groups 
+
+
+NOTE: To execute any file both read and execute permission is required only execute permission didn't work
+
+
+NUMERIC PERMISSION
+---------------------------------------------------------------------------------------------
+
+we can use octal number to specify permissions also , such type of permission are called numeric permissions
+
+-> Octal means base-8
+
+0 -------- 000 ------- No permission
+1 -------- 001 ------- Execute permission
+2 -------- 010 ------- Write permission
+3 -------- 011 ------- w and x permission
+4 -------- 100 ------- r permission
+5 -------- 101 ------- r and x permission
+6 -------- 110 ------- r and w permission
+7 -------- 111 ------- r , w and x permission
+
+--> We don't need to remember all of this we can use 
+	4 ------ Read Permission
+	2 ------ Write Permission
+	1 ------ Execute Permission
+
+--> Now using this 3 we can remember all permission for example read + execute -> 4+1 -> so we can use 5 
+ 
+1) chmod 741 FileName/DirName 		-> means all permission to owner and read permission to group and execute permission to others
+
+2) chmod 777 fileName/DirName		-> all permission to all group
+
+
+
+EXAMPLE
+---------------
+
+COMMAND 1
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+-rw-r--r-- 1 sandeep sandeep 0 Feb 21 16:44 file1
+
+sandeep@sandeep:~/dir1$ chmod g+wx,o-r file1
+
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+-rw-rwx--- 1 sandeep sandeep 0 Feb 21 16:44 file1
+
+
+COMMAND 2
+sandeep@sandeep:~/dir1$ chmod u=rw,g+r,o=r file1
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+-rw-r--r-- 1 sandeep sandeep 0 Feb 21 16:44 file1
+
+COMMAND 3
+sandeep@sandeep:~/dir1$ chmod a=rwx file1
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+-rwxrwxrwx 1 sandeep sandeep 0 Feb 21 16:44 file1
+
+COMMAND 4
+
+sandeep@sandeep:~/dir1$ chmod 000 file1
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+---------- 1 sandeep sandeep 0 Feb 21 16:44 file1
+
+sandeep@sandeep:~/dir1$ chmod 754 file1
+sandeep@sandeep:~/dir1$ ls -l
+total 0
+-rwxr-xr-- 1 sandeep sandeep 0 Feb 21 16:44 file1
+

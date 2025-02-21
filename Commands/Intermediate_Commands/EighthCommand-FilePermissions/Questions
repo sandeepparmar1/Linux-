@@ -1,0 +1,26 @@
+Questions on notes topic
+-------------------------------------------------------
+
+1)  What are the four user categories with respect to file permissions, and which letters represent them?
+
+2)  Which permission types exist for files and directories, and what do each of those permissions allow?
+
+3)  Why is execute permission crucial for directory operations?
+
+4)  What are the three operations (+, -, =) used in symbolic permission changes, and how do they differ?
+
+5)  Give an example of a symbolic chmod command that modifies permissions for multiple user categories at once.
+
+6)  What does it mean to remove all permissions from all user categories using the chmod command?
+
+7)  In numeric (octal) permissions, what do the digits 0 through 7 represent?
+
+8)  How can you combine the numeric values for read, write, and execute permissions to form a single digit?
+
+9)  If you run chmod 741 filename, what permissions are assigned to the owner, group, and others?
+
+10) Why do you often need both read (r) and execute (x) permissions to run a file as a script?
+
+11) How does numeric notation (e.g., chmod 777) differ from symbolic notation (e.g., chmod u=rwx,g=rwx,o=rwx) in changing file permissions?
+
+12) What is the default meaning of a (all) in a symbolic chmod command, and how does it differ from specifying u, g, or o individually?
