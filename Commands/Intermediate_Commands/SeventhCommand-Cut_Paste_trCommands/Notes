@@ -1,0 +1,280 @@
+Notes on cut,paste and translate Command
+------------------------------------------------------
+
+CUT COMMAND
+-----------------------------------------------------------------------
+
+We can use cut command to extract data from the file, The file can be either normal file or tabular file
+
+Syntax & Options
+------------------
+
+1) cut <Option> FileName
+
+For Normal Files
+-----------------
+
+1) cut -c 9 FileName			-> Display char at 9th position on every line
+
+2) cut -c 5-9 FileName			-> Display char range from 5 to 9 position of each line
+
+3) cut -c 5- FileName			-> From 5th position till end of the line print every char for each line
+
+4) cut -c -3 FileName 			-> Bydefault start from 1st char and print till 3rd char
+
+5) cut -c 3-5,7-10 FileName 		-> Fetch multiple ranges of character from a single file 
+
+For Tabular Files
+------------------
+Syntax
+6) cut -d "delimiter" -f <Filed Number> <FileName>
+
+7) cut -d "," -f 5 FileName 			-> Fetch 5th column data from file each line
+
+8) cut -d "," -f 5-10 FileName			-> Fetch 5th to 10th column data
+
+9) cut -d "," -f 2- FileName
+
+10) cut -d "," -f -5 FileName
+
+11) cut -d "," -f 1,4,8 FileName		-> Display only specified column data
+
+12) cut -d "," --complement -f 2,5 FileName 	-> display every column except 2 and 5
+
+13) cut -d "," --complement -f 2-4 FileName	-> Except this given range show everything
+
+
+
+
+
+
+Example ---------------- CUT COMMAND FOR NORMAL FILE
+
+FIRST COMMAND
+sandeep@sandeep:~$ cut -c 9 file.txt | head -5
+
+g
+a
+a
+n
+
+SECOND COMMAND
+sandeep@sandeep:~$ cut -c 5-9 file.txt | head -5
+inux
+he `g
+o sea
+ou ca
+o fin
+
+THIRD COMMAND
+sandeep@sandeep:~$ cut -c 5- file.txt | head -5
+inux is an open-source operating system kernel Linux.
+he `grep` command is used for searching text using patterns.
+o search for a specific word in a file, use: grep "word" filename.txt
+ou can search case-insensitively with: grep -i "word" filename.txt
+o find lines that **do not** match a pattern, use: grep -v "word" filename.txt
+
+FOURTH COMMAND
+sandeep@sandeep:~$ cut -c -5 file.txt | head -5
+1. Li
+2. Th
+3. To
+4. Yo
+5. To
+
+
+FIFTH COMMAND
+sandeep@sandeep:~$ cut -c 3-5,7-10 file.txt | head -5
+ Liux i
+ Th `gr
+ Tosear
+ Yo can
+ Tofind
+
+FOR TABULAR FILE EXAMPLE
+----------------------------------
+
+
+FOR COMMAND 1
+sandeep@sandeep:~$ cut -d "," -f 3 employe.data
+Salary
+75000
+82000
+90000
+60000
+65000
+85000
+78000
+70000
+73000
+90000
+88000
+
+FOR COMMAND 2
+sandeep@sandeep:~$ cut -d "," -f 1-2 employe.data
+Name,Department
+Rahul Sharma,IT
+Vikram Mehta,IT
+Anjali Gupta,IT
+Priya Verma,HR
+Neha Kapoor,HR
+Ankit Kumar,Finance
+Suresh Nair,Finance
+Sneha Joshi,Marketing
+Rohit Das,Marketing
+Amit Singh,Engineering
+Karan Malhotra,Engineering
+
+FOR COMMAND 3
+sandeep@sandeep:~$ cut -d "," -f -2 employe.data
+Name,Department
+Rahul Sharma,IT
+Vikram Mehta,IT
+Anjali Gupta,IT
+Priya Verma,HR
+Neha Kapoor,HR
+Ankit Kumar,Finance
+Suresh Nair,Finance
+Sneha Joshi,Marketing
+Rohit Das,Marketing
+Amit Singh,Engineering
+Karan Malhotra,Engineering
+
+FOR COMMAND 4
+sandeep@sandeep:~$ cut -d "," -f 2- employe.data
+Department,Salary
+IT,75000
+IT,82000
+IT,90000
+HR,60000
+HR,65000
+Finance,85000
+Finance,78000
+Marketing,70000
+Marketing,73000
+Engineering,90000
+Engineering,88000
+
+FOR COMMAND 5
+sandeep@sandeep:~$ cut -d "," -f 1,3 employe.data
+Name,Salary
+Rahul Sharma,75000
+Vikram Mehta,82000
+Anjali Gupta,90000
+Priya Verma,60000
+Neha Kapoor,65000
+Ankit Kumar,85000
+Suresh Nair,78000
+Sneha Joshi,70000
+Rohit Das,73000
+Amit Singh,90000
+Karan Malhotra,88000
+
+FOR COMMAND 6
+sandeep@sandeep:~$ cut -d "," --complement -f 1,3 employe.data
+Department
+IT
+IT
+IT
+HR
+HR
+Finance
+Finance
+Marketing
+Marketing
+Engineering
+Engineering
+
+FOR COMMAND 7
+sandeep@sandeep:~$ cut -d "," --complement -f 1-2 employe.data
+Salary
+75000
+82000
+90000
+60000
+65000
+85000
+78000
+70000
+73000
+90000
+88000
+
+
+
+PASTE COMMAND
+-------------------------------------------------------------------------------------------------------
+
+To join data horizontally with some delimiter we can use paste command in other paste command is used to join two or more table
+horizontally by using some delimiter, Default delimiter is "\t"
+
+Syntax
+-------------
+
+1) paste file1 file2 fileN 
+
+2) paste -d "," file1 file2 fileN		-> using -d option we can change default delimiter 
+
+NOTE : delimiter  should be only 1 char if you pass multiple char first char will we used only
+
+Example
+------------
+
+FIRST COMMAND 
+sandeep@sandeep:~$ paste employe.data employe.data
+Name,Department,Salary  Name,Department,Salary
+Rahul Sharma,IT,75000   Rahul Sharma,IT,75000
+Vikram Mehta,IT,82000   Vikram Mehta,IT,82000
+Anjali Gupta,IT,90000   Anjali Gupta,IT,90000
+Priya Verma,HR,60000    Priya Verma,HR,60000
+Neha Kapoor,HR,65000    Neha Kapoor,HR,65000
+Ankit Kumar,Finance,85000       Ankit Kumar,Finance,85000
+Suresh Nair,Finance,78000       Suresh Nair,Finance,78000
+Sneha Joshi,Marketing,70000     Sneha Joshi,Marketing,70000
+Rohit Das,Marketing,73000       Rohit Das,Marketing,73000
+Amit Singh,Engineering,90000    Amit Singh,Engineering,90000
+Karan Malhotra,Engineering,88000        Karan Malhotra,Engineering,88000
+
+
+SECOND COMMAND
+sandeep@sandeep:~$ paste -d "|" employe.data employe.data
+Name,Department,Salary|Name,Department,Salary
+Rahul Sharma,IT,75000|Rahul Sharma,IT,75000
+Vikram Mehta,IT,82000|Vikram Mehta,IT,82000
+Anjali Gupta,IT,90000|Anjali Gupta,IT,90000
+Priya Verma,HR,60000|Priya Verma,HR,60000
+Neha Kapoor,HR,65000|Neha Kapoor,HR,65000
+Ankit Kumar,Finance,85000|Ankit Kumar,Finance,85000
+Suresh Nair,Finance,78000|Suresh Nair,Finance,78000
+Sneha Joshi,Marketing,70000|Sneha Joshi,Marketing,70000
+Rohit Das,Marketing,73000|Rohit Das,Marketing,73000
+Amit Singh,Engineering,90000|Amit Singh,Engineering,90000
+Karan Malhotra,Engineering,88000|Karan Malhotra,Engineering,88000
+
+
+TRANSLATE COMMAND
+-----------------------------------------------------------------------------------
+tr command can we used to translate character by character 
+
+Suppose we have some condition like change all "a" to "A" then we can use tr command
+
+Syntax
+------------
+
+1) tr "<Char need to translate>" "Transalted character" < <FileName/Input Stream>
+
+2) tr "a" "A" < FileNAme
+
+3) tr "aeiou" "AEIOU" < FileName
+
+4) tr "[a-z]" "[A-Z]" <FileName
+
+5) tr "\t" "," <FileName
+
+6) tr -d "aeiou" <FileName 		-> -d option to delete the all character given
+
+7) tr -s "a" <fileName			-> s means squeze repeats means any sequence of "a" replace with single a 
+						eg "aaa" -> "a"
+
+
+ 

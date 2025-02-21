@@ -1,0 +1,40 @@
+Question ont Notes topics
+--------------------------------------------------------
+
+1)  What does the cut command do when working with normal (non-tabular) files?
+
+2)  Which option in cut is used to specify a delimiter for tabular files?
+
+3)  How do you extract a specific character position (e.g., the 9th character) from each line using cut?
+
+4)  What is the difference between cut -c 5-9 and cut -c -5?
+
+5)  How can you extract multiple character ranges (e.g., 3-5,7-10) from a single file using cut?
+
+6)  Which cut syntax would you use to show columns 5 through 10 in a comma-separated file?
+
+7)  How do you exclude specific fields or columns (e.g., 2 and 5) using --complement in cut?
+
+8)  What does cut -d "," -f -3 do compared to cut -d "," -f 3-?
+
+10) What is the default delimiter used by the paste command?
+
+11) How do you change the delimiter in paste (e.g., use | or ,)?
+
+12) If you specify multiple characters to the -d option in paste, which character is actually used?
+
+13) How does the paste command combine data from two files by default?
+
+14) Give an example scenario where paste file1 file2 might be useful.
+
+15) What does the tr command do with character-by-character translation?
+
+16) How do you replace all lowercase vowels with uppercase vowels using tr?
+
+17) Which option in tr is used to delete certain characters (e.g., vowels)?
+
+18) How do you squeeze repeated characters with tr (e.g., turning aaa into a)?
+
+19) What happens if you pipe data into tr instead of using a file input redirection (< file)?
+
+20) How do you convert all lowercase letters to uppercase letters with tr?
