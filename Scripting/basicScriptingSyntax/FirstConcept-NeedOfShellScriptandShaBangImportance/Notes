@@ -1,0 +1,61 @@
+Introduction to shell scripting
+----------------------------------------------
+
+-> So before shell scripting let's understand what is shell ?
+
+Works shell do is:
+----------------------------
+Shell is responsible to read command provided by user 
+Shell will check whether command is valid or not and it's properly used or not
+If everything is proper then shell converts the command into kernel understandable form and handover that converted command to kernel
+
+-> Then kernel is responsible to execute that command with the help of hardware 
+-> Hence shell act as interface between user and hardwar
+
+Types of shells :
+-------------------------
+
+1) Bourne shell - developed by stephen bourne it's first shell 
+2) Bash 
+3) korn 
+4) Cshell
+5) Tshell 
+etc ...
+
+Default shell is bash shell we can use other shell also if we needed 
+
+
+-> What is shell script 
+
+A sequence of commands saved to a file and this file is nothing but shell scripts,
+It gave us more programmatic features like( control statement , loops etc) 
+For complex requirement where only commands are not a efficent approach we can use scripts to do those tasks
+
+NOTE: user should have execute permission to execute scripts
+
+-> To run any script we have to use 
+
+/bin/bash ./ScriptName.sh -> If script present in current working directory
+
+and bash is default so we can use ./ScriptName (./) represent location of script
+
+NEXT CONCEPT IS IMPORTANCE OF SHA-BANG
+
+--------------------------------------------------------------------------------------------
+
+# ---- Sharp
+! ---- Bang
+
+hence #! ---> sharp bang or sha-bang 
+
+#! represent sha-bang concept 
+
+-> By using sha-bang, we can specify the interpreter which is responsible to execute the script
+-> In other word we can define which shell should be used to execute over script by help of sha-bang
+
+Example 
+#! /bin/bash
+	or
+#! /bin/sh
+
+
