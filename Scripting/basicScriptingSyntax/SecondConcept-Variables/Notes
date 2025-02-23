@@ -1,0 +1,67 @@
+Notes on variables
+----------------------------------------------------------------------
+
+
+Variables are like place holders to hold values, variables are like key value pairs
+In linux shell programming there is no data type concept everything is treated as "Text" type only
+
+
+All variables are divided into Two types
+-----------------------------------------
+1) Predefined / environment variables
+2) User Defined variables
+
+1) Predefined / environment variables
+-> These variables are mostly used by sytem internally, but based on our requirement we can use in our script also
+
+We can get all environment variable information by using
+--> env command
+
+USER DEFINED VARIABLES
+-----------------------------------
+
+Based on our programming requirements, we can define our own variable also
+
+Rules to define variables :
+---------------------------
+1) It's highly recommended to use only upper case letter and for multiple word we can use "_" 
+example - TEST_VARIABLE
+
+2) Variable names shouldn't start with digit
+
+3) We shouldn't use special symbol in between variable names
+
+NOTES : to define readonly variables we can use readonly keyword 
+
+for example: A=100; readonly A
+
+This will make A constant/final
+sandeep@sandeep:~$ A=20
+sandeep@sandeep:~$ readonly A
+sandeep@sandeep:~$ echo ${A}
+20
+sandeep@sandeep:~$ A=200
+-bash: A: readonly variable
+
+
+-> Variable Scope
+-----------------------
+
+1) Session Scope
+2) User Scope
+3) System Scope
+
+
+1) Session Scope -> The variable which are declared in the terminal are said to be in session scope once we close terminal automatically
+all these variable will be gone 
+
+2) User Scope -> The variable which are defined inside .bashrc or any file which automatically load at the time of creation session 
+can be used to define user scope variable and it will we available to specific user every time he load terminal
+
+3) System Scope -> These variables available for all users in our system , In /etc/ directory there is a file name as "profile" we can
+define system scope variables there 
+
+And last thing to note is system priority work same as programming language
+1) Session Scope ---------> User Scope ----------> System Scope
+
+
