@@ -1,0 +1,82 @@
+Notes on read keyword
+-----------------------------------------------
+
+-> read keyword is used to read dynamic data from the end user it's not like command line argument it's prompt based 
+input point where we can interact with the user for there input to further move on to over script
+
+There is 2 approaches we can follow to read data from user 
+
+1) Without prompt message 
+Example 	-> read var1 
+		   read var2 
+
+2) With Prompt message 
+Exmple 		-> echo -n "This is my prompt message : "
+		   read var1
+		   here -n is used to skip the new line comming from echo command
+
+But this second approach feel little long so another variant and which we always going to use is 
+
+3) read -p "Your prompt message: " varName		-> This will prompt a message and get value from user
+
+
+4) read -ps "Your Prompt message : " varName 		-> it hides the data on screen when user is entering
+
+
+
+EXAMPLE
+----------------------------------------------------
+
+FIRST SCRIPT
+********************************************************************
+
+#! /bin/bash
+
+echo "$test1"
+
+read var1
+read var2
+
+echo "var 1 is : ${var1} and var 2 is: ${var2}"
+
+*********************************************************************
+
+SECOND SCRIPT
+**********************************************************************
+
+#! /bin/bash
+
+echo "$test2"
+
+echo -n "This is prompt message: "
+read var1
+
+echo "var 1 is : ${var1} "
+
+***********************************************************************
+
+THIRD SCRIPT
+***********************************************************************
+
+#! /bin/bash
+
+echo "$test2"
+
+read -p "This is prompt message: " var1
+echo "var 1 is : ${var1} "
+
+***********************************************************************
+
+
+FOURTH SCRIPT
+***********************************************************************
+
+
+#! /bin/bash
+
+echo "$test2"
+
+read -sp "This is prompt message: " var1
+echo "var 1 is : ${var1} "
+
+************************************************************************

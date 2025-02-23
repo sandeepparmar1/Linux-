@@ -1,0 +1,69 @@
+Solutions
+------------------------------------------------------------
+
+SCRIPT ONE
+***************************************************************
+
+#! /bin/bash
+echo "Enter student data"
+
+read -p "Enter student name: " StudentName
+read -p "Enter Student class: " StudentClass
+read -p "Enter Student roll number: " StudentRollNumber
+
+echo "Student details is"
+echo "name: ${StudentName}"
+echo "StudentClass: ${StudentClass}"
+echo "Student Roll Number: ${StudentRollNumber}"
+
+****************************************************************
+
+SCRIPT TWO 
+*****************************************************************
+
+#! /bin/bash
+echo "Enter Emp data"
+
+read -p "Enter Employe name: " EmployeName
+read -p "Enter Employe Department: " EmployeDepartment
+read -p "Enter Employe Salary: " EmployeSalary
+
+echo "Employe details is"
+echo "name: ${EmployeName}"
+echo "Employe Department: ${EmployeDepartment}"
+echo "Employe Salary: ${EmployeSalary}"
+
+echo "${EmployeName},${EmployeDepartment},${EmployeSalary} " >> emp.data
+echo "Record Inserted"
+
+********************************************************************
+
+SCRIPT THREE
+******************************************************************
+
+#! /bin/bash
+
+read -p "Enter your String: " Arg1
+echo "Length of the string is: $(echo -n $Arg1 | wc -c ) "
+
+*******************************************************************
+
+SCRIPT FOUR 
+*******************************************************************
+
+#! /bin/bash
+
+read -p "Enter the name of the file: " File1
+cat "${File1}"
+
+*********************************************************************
+
+SCRIPT FIVE
+********************************************************************
+
+#! /bin/bash
+
+read -p "Give your file path: " Path
+grep -v -E "^$" "$Path" 
+
+********************************************************************
