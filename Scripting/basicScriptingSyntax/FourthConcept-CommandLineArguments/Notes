@@ -1,0 +1,66 @@
+Notes on Command Line Argument
+----------------------------------------------------------------------------
+
+The argument which we can pass throught command prompt to over command is called as command line argument 
+The main purpose of command line argument is to customized the behaviour of over script 
+
+Default seprator is space of command line argument 
+
+Example ./test.sh 10 20 30 40 
+
+here -> 10 , 20 , 30 and 40 are command line argument only 
+
+So we can perform some operations on this command line arguments which are :
+
+in Our script 
+1) $# 		-> Number of argument passed in our case result would be 4 
+
+2) $0 		-> Represent name of the script 
+
+3) $1		-> Represent first command line argument 
+
+4) $2		-> Represent second command line argument 
+		
+and so on..
+
+5) $*		-> Represent all arguments
+
+6) $@ 		-> Also represent all arguments 
+
+
+$* vs $@ -> Main difference is $* represent all command line argument as a single sting and values are seprated by space but in case of
+		$@ all arguments are different entites seprated by space 
+
+
+EXAMPLE
+-------------------------------------------------------
+
+SCRIPT ONE
+*************************************************************
+
+#! /bin/bash
+
+echo "$test1"
+echo "Total argument $#"
+echo "Name of the script is $0"
+echo "Argument 1st : $1"
+echo "Argument 2nd : $2"
+echo "Total arguments as a single string: $*"
+echo "Total arguments as a different entites : $@"
+
+OUTPUT
+*******************************
+sandeep@sandeep:~/scripts$ ./test.sh 10 20 30
+
+Name of the script is ./test.sh
+Total argument 3
+Argument 1st : 10
+Argument 2nd : 20
+Total arguments as a single string: 10 20 30
+Total arguments as a different entites : 10 20 30
+sandeep@sandeep:~/scripts$
+
+
+****************************************************************
+
+
