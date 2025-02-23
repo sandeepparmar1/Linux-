@@ -1,0 +1,75 @@
+Notes on Substitution
+---------------------------------------------------------------------------
+
+As we know we can define the variable value in 3 scopes for accessing this value and substituing this values in any place we have to
+use "$" symbol 
+
+
+let's first talk about defining a variable 
+Syntax
+--------------
+VARNAME=VARVALUE
+as we know everything is a text type so there is no need to declare data types
+
+NOTE: BUT MAKE SURE THERE SHOULDN'T BE ANY WHITE SPACES BETWEEN VARNAMR AND "=" SYMBOL SAME GOES TO VALUE ALSO OR YOU WILL GET AN ERROR
+Actually Value1 = Value2 is a comparison operator in Script which we talk at operator section for now make sure Key=Value don't put any
+white spaces between values 
+
+VARIABLE SUBSTITUTION
+----------------------------------------------------------------------------------------------------------------
+-> Hence We defined over variable with some value now how to access it there is multiple syntaxes 
+
+1) Using "$" Symbol   -> Suppose we have variable a we can access it using "$a"
+
+2) Using "${VarName}"  -> This is highly recommended to use 
+
+EXAMPLE
+--------------------------
+FIRST SCRIPT
+********************************************  
+#! /bin/bash
+A=10
+echo "$A test1"
+********************************************
+
+SECOND SCRIPT
+********************************************
+#! /bin/bash
+A=10
+echo "${A} test2"
+
+
+
+COMMAND SUBSTITUTION
+------------------------------------------------------------------------------------------------------------------
+-> As we substitute variable we can also substitute a command and use it's result
+
+SYNTAX
+---------
+
+1) `command` ---------- This is a old syntax 
+
+2) $( Command ) ------- This is new syntax and recommended to use 
+
+EXAMPLE
+-----------------------------------------------------
+FIRST SCRIPT
+*****************************************************
+
+#! /bin/bash
+
+echo "$test1"
+echo "today's date is: `date +%D` "
+
+******************************************************
+
+SECOND SCRIPT
+******************************************************
+
+#! /bin/bash
+
+echo "$test2"
+echo "total file in current directory is : $(ls | wc -w)"
+
+********************************************************
+
