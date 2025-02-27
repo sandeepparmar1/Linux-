@@ -1,0 +1,68 @@
+
+SCRIPT - 1
+***********************************************************************************************
+
+#!/bin/bash
+read -p "Enter 1st number: " num1
+read -p "Enter 2nd number: " num2
+
+
+echo "$num1+$num2" | bc | xargs echo "Addition: "
+echo "$num1-$num2" | bc | xargs echo "Subtratcion: "
+echo "scale=2; $num1/$num2" | bc | xargs echo "Divide: "
+echo "$num1*$num2" | bc | xargs echo "Multiplication: "
+
+
+***********************************************************************************************
+
+
+SCRIPT - 2
+***********************************************************************************************
+
+#!/bin/bash
+
+read -p "enter data : " data
+
+num1=$(echo "$data" | cut -c 1)
+num2=$(echo "$data" | cut -c 2)
+num3=$(echo "$data" | cut -c 3)
+num4=$(echo "$data" | cut -c 4)
+
+let total=$num1+$num2+$num3+$num4
+
+echo "$total"
+
+************************************************************************************************
+
+
+SCRIPT - 3
+************************************************************************************************
+
+#!/bin/bash
+
+# Prompt for inputs; ensure the script runs with bash.
+read -p "Enter column number where monthly salary is present : " MonthlySalary
+read -p "Enter bonus percentage increase (e.g., 10 for 10%): " Bonus
+
+# Debug: Print user input values
+echo "Column: ${MonthlySalary}, Bonus: ${Bonus}"
+
+# calculating total columns except header of file
+let a=$(cut -d "," -f ${MonthlySalary} employee.csv | wc -l)-1
+echo "Bonus" > temp.txt
+
+
+# Calculating bonus and storing it into temp file 
+cut -d "," -f ${MonthlySalary} employee.csv |tail -$a \
+| xargs -n1 echo "12 * " | bc | \
+xargs -n1 echo "${Bonus}/100 *" | \
+bc | xargs -n1 echo  >> temp.txt
+
+
+paste -d "," employee.csv temp.txt
+
+
+************************************************************************************************
+
+because we are not at loop topic right now so we have to use pipe concept
+

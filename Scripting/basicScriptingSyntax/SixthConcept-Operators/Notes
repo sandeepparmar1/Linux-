@@ -1,0 +1,151 @@
+Notes on operators
+----------------------------------------------------------------------------------------------
+
+-> What is operators ?
+
+Operators are some symbols which is responsible to perform operations on any operand
+
+In Shell scripting we have multiple types of operators
+
+1) Arithmetic Operators
+-----------------------------------------------------
+
+like +,-,*,/,% we can use this operators i am not going to explain each operator use this are common Arithmetic operators 
+
+2) Relational Operators
+------------------------------------------------------
+Relational operators are the operator which describe relation between two operand 
+
+a) -gt -------------- Greater then 
+b) -lt -------------- Less then
+c) -ge -------------- Greater then equal to
+d) -le -------------- less then equal to
+e) -eq -------------- Equal
+f) -ne -------------- Not Equal
+
+-> Note : This realtional Operators we can only use with Intgeral values not string or float 
+
+
+3) Logical Operators
+-------------------------------------------------------
+
+a) -a ------- Logical and
+b) -o ------- Logical or
+c) ! -------- Logical not
+
+4) Assignement Operator
+-----------------------
+a) =
+Note -> Don't use space in between
+
+
+
+--> But in starting we mentioned everything Shell is treated as text so how can we convert it into integer ?
+There are multiple ways to do this 
+
+1) Using expr keyword
+------------------------------
+expr means expression and we can use expr to create text data into integer data 
+
+Syntax - Data=$(expr $a + $b)
+
+ex -> 
+******************************************************
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$(expr $a + $b);echo ${sum}
+enter 10
+enter 20
+30
+
+IF WE USE NON INTGERAL VALUE
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$(expr $a + $b);echo ${sum}
+enter 1
+enter a
+expr: non-integer argument
+
+********************************************************
+
+2) By using let keyword
+
+-> It's mostly used in real life 
+Syntax - let sum=$a+$b or let sum=a+b
+
+
+*******************************************************
+
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;let sum=$a+$b ;echo ${sum}
+enter 10
+enter 20
+30
+				OR
+
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;let sum=a+b ;echo ${sum}
+enter 40
+enter 50
+90
+
+********************************************************
+
+
+3) By using (())
+
+Syntax - Sum=$(($a+$b)) or Sum=$((a+b))
+
+********************************************************
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$(( $a + $b)) ;echo ${sum}
+enter 10
+enter 20
+30
+					OR
+
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$(( a + b)) ;echo ${sum}
+enter 30
+enter 40
+70
+
+*********************************************************
+
+4) By using [] 
+
+Syntax - Sum=$[ $a + $b ]  or Sum=$[a + b]
+
+
+*********************************************************
+
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$[ a + b] ;echo ${sum}
+enter 10
+enter 20
+30
+					OR
+					
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$[ $a + $b] ;echo ${sum}
+enter 20
+enter 30
+50
+
+**********************************************************
+
+NOTE : THIS ALL 4 METHODS ONLY WORK FOR INTEGERAL ARGUMENTS FOR FLOAT TYPE WE SHOULD GO FOR BC COMMAND
+
+
+BC COMMAND
+---------------------------------------------------------------------
+
+bc stands for binary calculator 
+
+-> bc command can work for both integral and float type values 
+- if we use bc on command line it will open binary calculator 
+
+we can use it for our bash like this 
+
+1) echo -n "${a}+${b}" | bc  ------------ This will return the result after performing operation
+
+***********************************************************
+
+sandeep@sandeep:~/scripts$ read -p "enter " a;read -p "enter " b;sum=$(echo ${a}+${b} | bc) ;echo ${sum}
+enter 20.22
+enter 30.22
+50.44
+
+************************************************************
+
+ 
