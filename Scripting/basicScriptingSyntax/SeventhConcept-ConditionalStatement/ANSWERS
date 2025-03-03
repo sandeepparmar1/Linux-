@@ -1,0 +1,123 @@
+Answer of questions
+--------------------------------------------------------
+
+SCRIPT 1
+**************************************************************************************
+
+#! /bin/bash
+
+# 1) write a script to find greater number in given 3 integer numbers
+
+read -rp "Enter number  : " num1
+read -rp "Enter number  : " num2
+read -rp "Enter number  : " num3
+
+if [ "$num1" -gt "$num2" ]; then
+    if [ "$num1" -gt "$num3" ]; then
+        echo "Number 1 is greatest: $num1"
+    else
+        echo "Number 3 is greatest: $num3"
+    fi
+else
+    if [ "$num2" -gt "$num3" ]; then
+        echo "Number 2 is greatest: $num2"
+    else
+        echo "Number 3 is greatest: $num3"
+    fi
+fi
+
+*************************************************************************************
+
+
+SCRIPT 2
+*************************************************************************************
+
+#! /bin/bash
+
+# 2) write a script to find if a student is fail or pass get marks as input of 3 subject 
+# if marks per subject > 33 pass else fail
+
+read -rp "Enter number  : " num1
+read -rp "Enter number  : " num2
+read -rp "Enter number  : " num3
+
+
+if [ "$num1" -lt 33 -o "$num2" -lt 33 -o "$num3" -lt 33 ]; then
+    echo "Failed"
+else
+    echo "Passed"
+fi
+
+***************************************************************************************
+
+SCRIPT 3
+***************************************************************************************
+
+#! /bin/bash
+
+# 3) write a script to read a int number and check if given number is +ve or -ve
+read -pr "Enter number: " num
+
+if [ "$num" -lt 0 ]; then  
+    echo "Negative number"
+else
+    echo "positive number"
+fi
+
+***************************************************************************************
+
+
+SCRIPT 4
+***************************************************************************************
+
+#!/bin/bash
+
+read -rp "enter data: " data
+
+if [[ $data =~  [^0-9.]+ ]]; then
+    echo "String"
+elif [[ $data =~ [0-9]+\.[0-9]+ ]]; then
+    echo "Float"
+else
+    echo "Integer"
+fi
+
+****************************************************************************************
+
+
+SCRIPT 5
+****************************************************************************************
+
+#! /bin/bash
+
+# 5) check given number is even or odd
+
+read -rp "Enter your number: " num
+
+if (( "$num" % 2 == 0 )); then 
+    echo "Even"
+else
+    echo "Odd"
+fi
+
+# For arthmatic comparision we should use (( )) by this we can use most of general coding arthmatic syntax
+
+********************************************************************************************
+
+
+SCRIPT 6
+******************************************************************************************
+
+#! /bin/bash
+
+# 6) check given number is 3 digit number or not
+
+read -rp "Enter number : " num 
+
+if ((num > 99 && num < 1000));then 
+    echo "number is 3 digit"
+else
+    echo "number is not three digit"
+fi
+
+*******************************************************************************************

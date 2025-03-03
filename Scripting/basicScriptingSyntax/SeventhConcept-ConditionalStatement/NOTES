@@ -1,0 +1,223 @@
+Notes on Conditional Statement and some other small important concepts 
+-----------------------------------------------------------------------------------------------------
+
+--> what is conditional statement ?
+
+The statement which control execution flow at runtime based on some condition are called conditional statement 
+
+ex
+---
+if condition
+	stmt
+else
+	stmt 
+
+1) If statement
+------------------
+
+we can divide if statement in 4 types
+a) simple if 
+b) if - else 
+c) nested if
+d) if - elif ladder 
+
+a) Simple if
+------------
+If condition is true then only stmts blocks will going to execute
+
+Synatx
+--------
+if [ condition ];
+then
+-------------action-----------
+fi
+
+NOTE: Make sure space between condition are mandatory and if block should be close with fi (Opposite of if) 
+
+Example
+-----------
+*******************************************************************
+sandeep@sandeep:~$ if [ 10 = 10 ];
+> then
+> echo "Test check completed"
+> fi
+Test check completed
+
+*******************************************************************
+
+NOTE: note the spacing 
+x=10     ---- This is assignement 
+x = 10   ---- Now this is comparision in linux 
+
+Syntax 2 
+-------------------
+Mostly you are always going to use this only 
+
+if [ condition ]; then
+----------------action--------------
+fi
+
+Example
+-------
+*********************************************************************
+
+sandeep@sandeep:~$ if [ 10 = 10 ]; then
+> echo "testing 2nd syntax"
+> fi
+testing 2nd syntax
+
+**********************************************************************
+
+
+
+b) if - else statements
+------------------------------
+
+Syntax
+----------
+
+if [ condition ] ;
+then
+-------------action-------------
+else
+-----------action---------------
+fi
+
+As you can see if has a conditon block which will resolve at runtime if at runtime the resolution came as false then else block
+will execute if the condition resolved as true then if block will execute 
+
+Example
+-----------
+****************************************************************
+sandeep@sandeep:~$ if [ 10 = 11 ];
+> then
+> echo "if block"
+> else
+> echo "else block"
+> fi
+else block
+
+****************************************************************
+
+Syntax - 2
+------------------
+if [ condition ] ; then 
+----------action-----------
+else
+----------action----------
+fi
+
+Example
+--------
+****************************************************************
+
+sandeep@sandeep:~$ if [ 10 = 10 ] ; then
+> echo "if block"
+> else
+> echo "else block"
+> fi
+if block
+
+****************************************************************
+
+c) Nested if 
+
+-> Means defining conditional block inside conditional block 
+
+Syntax
+-----------
+
+if [ condition ] ; then
+     -------action---------
+     if [ condition ] ; then
+        --------action --------
+     else
+        --------action--------
+     fi
+else
+-------action----------
+fi
+
+NOTE : Spacing provide for understanding sake only not important as per syntax approach
+and you can create as many nested block as u want just end it with "fi"
+
+Example
+------------
+***********************************************************************
+
+#! /bin/bash
+read -p "Enter fav dish : " dish
+read -p "Enter fav sweet : " sweet
+
+if [ "$dish" = "chicken" ]; then
+    if [ "${sweet}" = "icecream" ]; then
+        echo "let's go out for lunch"
+    else
+        echo "nice choice"
+    fi
+else
+    echo "good !!!!"
+fi
+
+Output 
+----------------
+sandeep@sandeep:/mnt/d/Linux_Scripts/ConditionalStatement$ ./ExampleScript.sh
+Enter fav dish : chicken
+Enter fav sweet : icecream
+let's go out for lunch
+
+************************************************************************
+
+d) if - elif ladder 
+---------------------
+
+Using multiple condional checks if our condition match at any check below steps will not be evaluated
+
+Syntax
+----------
+if [ condition - 1 ] ; then
+-----------action 1 ------------
+elif [ condition - 2 ] ; then
+--------action 2 ---------------
+else
+--------else action-----------
+fi
+
+
+Example
+--------------
+**************************************************************************
+
+#! /bin/bash
+read -p "Enter fav dish : " dish
+
+if [ "$dish" = "chicken" ]; then
+    echo "let's go out for lunch"
+elif [ "${dish}" = "panner" ]; then
+    echo "nice choice"
+else
+    echo "good !!!!"
+fi
+
+Output
+-----------------
+sandeep@sandeep:/mnt/d/Linux_Scripts/ConditionalStatement$ ./ExampleScript.sh
+Enter fav dish : panner
+nice choice
+
+**************************************************************************
+
+
+
+
+NOTE : WE CAN USE RELATIONAL AND LOGICAL OPERTORS IN CONDITION FOR EXAMPLE
+[ 10 -gt 12 ]       --- false
+[ 12 -gt 10 ]       --- true
+
+
+
+
+
+
+
+
